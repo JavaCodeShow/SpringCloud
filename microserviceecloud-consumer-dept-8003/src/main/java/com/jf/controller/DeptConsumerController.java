@@ -1,8 +1,7 @@
 package com.jf.controller;
 
+
 import com.jf.entity.Department;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
-import org.apache.catalina.servlet4preview.http.ServletMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -15,7 +14,9 @@ import java.util.List;
  */
 @RestController
 public class DeptConsumerController {
-    private static final String URI_Prefix = "http://localhost:8001";
+    // private static final String URI_Prefix = "http://localhost:8001";
+    // Ribbon和Eureka整合后可以直接调用服务名而不用再关心ip地址和端口号。
+    private static final String URI_Prefix = "http://MICROSERVICECLOUD-DEPT";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -37,6 +38,11 @@ public class DeptConsumerController {
     public List<Department> getDeptList() {
         List<Department> deptList = restTemplate.getForObject(URI_Prefix + "/dept/get/list", List.class);
         return deptList;
+    }
+
+    @GetMapping(value = "/consumer/dept/discovery")
+    public Object discovery() {
+        return restTemplate.getForObject(URI_Prefix + "/dept/discovery", Object.class);
     }
 
 
