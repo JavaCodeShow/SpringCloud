@@ -19,3 +19,4 @@ public class MySelfRule {
         return new RandomRule_ZY();
     }
 }
+  
