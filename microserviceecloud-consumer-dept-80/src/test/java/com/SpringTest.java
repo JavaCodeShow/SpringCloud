@@ -15,15 +15,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringTest {
 
-    @Autowired
-    private ApplicationContext ac;
+    // @Autowired
+    // private ApplicationContext ac;
 
     @Test
     public void fun() {
-        System.out.println(ac.containsBean("getRestTemplate"));
-        System.out.println(ac.containsBean("getRestTemplate"));
-        System.out.println(ac.containsBean("getRestTemplate"));
-        System.out.println(ac.containsBean("getRestTemplate"));
+        // System.out.println(ac.containsBean("getRestTemplate"));
     }
 
 }

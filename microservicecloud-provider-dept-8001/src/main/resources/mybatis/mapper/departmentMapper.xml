@@ -7,6 +7,7 @@
     <insert id="addDept" parameterType="department" >
         insert into department values (NULL ,#{deptName},#{db_source})
     </insert>
+
     <select id="findDeptById" resultType="department" parameterType="Integer">
       select * from department where deptId = #{deptId}
      </select>
@@ -15,3 +16,5 @@
       select * from department
      </select>
 </mapper>
+
+

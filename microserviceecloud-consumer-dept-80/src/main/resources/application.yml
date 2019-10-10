@@ -1,5 +1,5 @@
 server:
-  port: 8004
+  port: 80
 
 #eureka的服务注册地址
 eureka:

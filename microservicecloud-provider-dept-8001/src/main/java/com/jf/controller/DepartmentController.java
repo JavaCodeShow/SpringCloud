@@ -19,6 +19,7 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
+
     /**
      * 服务发现，通过这个可以获取当前服务的配置信息。
      */

@@ -14,21 +14,21 @@ import java.util.List;
  */
 @RestController
 public class DeptConsumerController {
-    // private static final String URI_Prefix = "http://localhost:8001";
+    private static final String URI_Prefix = "http://localhost:8001";
     // Ribbon和Eureka整合后可以直接调用服务名而不用再关心ip地址和端口号。
-    private static final String URI_Prefix = "http://MICROSERVICECLOUD-DEPT";
+    // private static final String URI_Prefix = "http://MICROSERVICECLOUD-DEPT";
 
     @Autowired
     private RestTemplate restTemplate;
 
     // @RequestBody只能支持POST请求
-    @RequestMapping(value = "/dept/add")
+    @PostMapping(value = "/consumer/dept/add")
     public boolean addDept(@RequestBody Department department) {
         System.out.println("执行了这个方法");
         return restTemplate.postForObject(URI_Prefix + "/dept/add", department, Boolean.class);
     }
 
-    @RequestMapping(value = "/consumer/dept/get/{id}")
+    @GetMapping(value = "/consumer/dept/get/{id}")
     public Department getDeptList(@PathVariable Integer id) {
         Department department = restTemplate.getForObject(URI_Prefix + "/dept/get/" + id, Department.class);
         return department;
