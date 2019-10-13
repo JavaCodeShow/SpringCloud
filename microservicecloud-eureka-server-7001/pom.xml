@@ -3,13 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>microservciecloud</artifactId>
+        <artifactId>microservicecloud</artifactId>
         <groupId>com.jf.springcloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>microservicecloud-eureka-server-7001</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
 
     <dependencies>
         <!--eureka-server服务端 -->
@@ -18,6 +24,7 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
             <version>1.4.5.RELEASE</version>
         </dependency>
+
         <!-- 修改后立即生效，热部署 -->
         <dependency>
             <groupId>org.springframework</groupId>

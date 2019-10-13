@@ -14,9 +14,9 @@ import java.util.List;
  */
 @RestController
 public class DeptConsumerController {
-    private static final String URI_Prefix = "http://localhost:8001";
+    // private static final String URI_Prefix = "http://localhost:8001";
     // Ribbon和Eureka整合后可以直接调用服务名而不用再关心ip地址和端口号。
-    // private static final String URI_Prefix = "http://MICROSERVICECLOUD-DEPT";
+    private static final String URI_Prefix = "http://MICROSERVICECLOUD-DEPT";
 
     @Autowired
     private RestTemplate restTemplate;

@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jf.springcloud</groupId>
-    <artifactId>microservciecloud</artifactId>
+    <artifactId>microservicecloud</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>microservciecloud-api</module>
+        <module>microservicecloud-api</module>
         <module>microservicecloud-provider-dept-8001</module>
         <module>microserviceecloud-consumer-dept-80</module>
         <module>microservicecloud-eureka-server-7001</module>
@@ -27,7 +27,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
-        <lombok.version>1.16.18</lombok.version>
     </properties>
     <!-- dependencyManagement 是对jar包的版本号进行管理，只声明，并不会引入jar包 -->
     <dependencyManagement>

@@ -20,7 +20,7 @@ public class BeanConfig {
      */
     @Bean
     // @LoadBalanced // Spring Cloud Ribbon是基于Netflix Ribbon试下你的一套客户端，负载均衡的工具。
-    public RestTemplate getRestTemplate() {
+    public RestTemplate restTemplate() {
         System.out.println("创造了一个bean,id为restTemplate");
         return new RestTemplate();
     }
