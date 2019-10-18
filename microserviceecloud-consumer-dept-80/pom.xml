@@ -12,7 +12,6 @@
     <artifactId>microserviceecloud-consumer-dept-80</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>com.jf.springcloud</groupId>
             <artifactId>microservicecloud-api</artifactId>
@@ -32,10 +31,6 @@
         </dependency>
 
         <!-- 修改后立即生效，热部署 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>springloaded</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

@@ -26,13 +26,6 @@ public class SpringBootApp_dept_80 {
     public void fun() {
         System.out.println(Arrays.toString(ac.getBeanDefinitionNames()));
         System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
-        System.out.println(ac.containsBean("restTemplate"));
     }
 
     @Test

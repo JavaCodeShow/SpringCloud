@@ -3,6 +3,8 @@ package com.jf.controller;
 
 import com.jf.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +23,12 @@ public class DeptConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * euraka服务发现，
+     */
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
     // @RequestBody只能支持POST请求
     @PostMapping(value = "/consumer/dept/add")
     public boolean addDept(@RequestBody Department department) {
@@ -30,14 +38,12 @@ public class DeptConsumerController {
 
     @GetMapping(value = "/consumer/dept/get/{id}")
     public Department getDeptList(@PathVariable Integer id) {
-        Department department = restTemplate.getForObject(URI_Prefix + "/dept/get/" + id, Department.class);
-        return department;
+        return restTemplate.getForObject(URI_Prefix + "/dept/get/" + id, Department.class);
     }
 
     @GetMapping(value = "/consumer/dept/get/list")
     public List<Department> getDeptList() {
-        List<Department> deptList = restTemplate.getForObject(URI_Prefix + "/dept/get/list", List.class);
-        return deptList;
+        return restTemplate.getForObject(URI_Prefix + "/dept/get/list", List.class);
     }
 
     @GetMapping(value = "/consumer/dept/discovery")
@@ -45,5 +51,16 @@ public class DeptConsumerController {
         return restTemplate.getForObject(URI_Prefix + "/dept/discovery", Object.class);
     }
 
+    @GetMapping(value = "/discovery")
+    public DiscoveryClient discoverySelf() {
+        List<String> services = discoveryClient.getServices();
+        System.out.println("-----------------------" + services + "-------------------------");
+        List<ServiceInstance> instances = discoveryClient.getInstances("MICROSERVICECLOUD-DEPT");
+        for (ServiceInstance instance : instances) {
+            System.out.println(instance.getHost() + "----------" + instance.getServiceId() + "-----------"
+                    + instance.getUri() + "-----------" + instance.getPort());
+        }
+        return this.discoveryClient;
+    }
 
 }

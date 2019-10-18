@@ -64,7 +64,6 @@ public class DepartmentController {
              + instance.getUri() + "-----------" + instance.getPort());
         }
         return this.discoveryClient;
-
     }
 
 }
