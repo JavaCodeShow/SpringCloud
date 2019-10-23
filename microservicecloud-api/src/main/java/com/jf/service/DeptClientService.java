@@ -13,18 +13,16 @@ import java.util.List;
  * @author 潇潇暮雨
  * @create 2018-12-05   10:25
  */
-//@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+// @FeignClient(value = "MICROSERVICECLOUD-DEPT")
 @FeignClient(value = "MICROSERVICECLOUD-DEPT",fallbackFactory=DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
 
     @RequestMapping(value = "/dept/add")
-    public boolean addDept(@RequestBody Department department);
+    boolean addDept(@RequestBody Department department);
 
     @GetMapping(value = "/dept/get/{id}")
-    public Department getDeptById(@PathVariable("id") Integer id);
+    Department getDeptById(@PathVariable("id") Integer id);
 
     @GetMapping(value = "/dept/get/list")
-    public List<Department> getAllDept();
-
-
+    List<Department> getAllDept();
 }

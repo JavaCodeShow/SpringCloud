@@ -33,6 +33,6 @@ eureka:
 info:
   app.name: com.jf-microservicecloud
   company.name: www.com.jf.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"
 

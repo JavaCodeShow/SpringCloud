@@ -2,11 +2,12 @@ package com.jf.controller;
 
 import com.jf.entity.Department;
 import com.jf.service.DepartmentService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class DepartmentController {
     private DiscoveryClient discoveryClient;
 
     // 一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法
-    @HystrixCommand(fallbackMethod = "getDeptByIdFallback")
+    // @HystrixCommand(fallbackMethod = "getDeptByIdFallback")
     @GetMapping(value = "/dept/get/{id}")
     public Department getDeptById(@PathVariable("id") Integer id) {
         Department department = departmentService.findDeptById(id);
@@ -37,15 +38,12 @@ public class DepartmentController {
         return department;
     }
 
-    public Department getDeptByIdFallback(@PathVariable("id") Integer id) {
-        System.out.println("调用了getDeptByIdFallback 这个方法");
-        System.out.println("调用了getDeptByIdFallback 这个方法");
+    private Department getDeptByIdFallback(@PathVariable("id") Integer id) {
         System.out.println("调用了getDeptByIdFallback 这个方法");
         Department department = new Department();
         department.setDeptName("熔断");
         return department;
     }
-
 
     @GetMapping(value = "/dept/get/list")
     public List<Department> getAllDept() {
@@ -62,7 +60,6 @@ public class DepartmentController {
                     + instance.getUri() + "-----------" + instance.getPort());
         }
         return this.discoveryClient;
-
     }
 
 }
