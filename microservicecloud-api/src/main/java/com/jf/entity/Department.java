@@ -6,11 +6,13 @@ import java.io.Serializable;
  * @author 潇潇暮雨
  * @create 2018-12-01   18:46
  */
-
 public class Department implements Serializable {
     private Integer deptId;
+
     private String deptName;
+    
     private String db_source;
+    
 
     public Integer getDeptId() {
         return deptId;
