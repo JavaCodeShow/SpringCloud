@@ -5,6 +5,7 @@ spring:
   application:
     name: microservicecloud-zuul-gateway
 
+# 注册进eureka
 eureka:
   client:
     service-url:
@@ -13,10 +14,21 @@ eureka:
     instance-id: gateway-9527.com
     prefer-ip-address: true
 
+zuul:
+  # 原真实服务名字忽略 （单个具体，多个用' * '）
+  # ignored-services: microservicecloud-dept
+  ignored-services: "*"
+
+  # 微服务名称映射，避免暴露微服务名字
+  routes:
+    myDept.serviceId: microservicecloud-dept
+    myDept.path: /myDept/**
+  # 设置统一公共前缀
+  prefix: /jiaming
 
 info:
   app.name: atguigu-microcloud
   company.name: www.atguigu.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"
 
