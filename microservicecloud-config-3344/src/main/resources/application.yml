@@ -1,0 +1,19 @@
+# 端口号
+server:
+  port: 3344
+
+spring:
+  application:
+    name:  microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/1546844168/microservicecloud-config.git #GitHub上面的git仓库名字
+
+info:
+  app.name: com.jf-microservicecloud
+  company.name: www.com.jf.com
+  build.artifactId: "@project.artifactId@"
+  build.version:  "@project.version@"
+
