@@ -32,6 +32,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
     <!-- dependencyManagement 是对jar包的版本号进行管理，只声明，并不会引入jar包 -->
     <dependencyManagement>
@@ -66,10 +67,20 @@
                 <version>1.3.0</version>
             </dependency>
             <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
             </dependency>
             <!-- lombok -->
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
