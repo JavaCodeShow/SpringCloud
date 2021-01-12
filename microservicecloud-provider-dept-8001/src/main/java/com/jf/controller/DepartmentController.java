@@ -26,7 +26,6 @@ public class DepartmentController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    // @RequestParam即支持GET请求，也支持POST请求。
     @GetMapping(value = "/dept/add1")
     public boolean addDept1(@RequestParam String deptName, @RequestParam String db_source) {
         Department department = new Department();
@@ -36,7 +35,7 @@ public class DepartmentController {
     }
 
     // @RequestBody只能支持POST请求
-    @RequestMapping(value = "/dept/add")
+    @PostMapping(value = "/dept/add")
     public boolean addDept(@RequestBody Department department) {
         System.out.println("执行了添加");
         System.out.println("执行了添加");
