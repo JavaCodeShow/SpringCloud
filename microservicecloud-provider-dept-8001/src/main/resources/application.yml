@@ -15,8 +15,8 @@ spring:
     name: microservicecloud-dept-provider    # 对外暴露的微服务的名字，也就是eureka中显示的微服务的名字
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
-    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
-    url: jdbc:mysql://localhost:3306/uss?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai           # 数据库名称
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://139.224.103.236:3306/jfTest?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false&tinyInt1isBit=false&serverTimezone=GMT%2B8
     username: root
     password: 123456
     dbcp2:

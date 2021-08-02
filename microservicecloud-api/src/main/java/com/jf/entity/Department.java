@@ -10,9 +10,9 @@ public class Department implements Serializable {
     private Integer deptId;
 
     private String deptName;
-    
+
     private String db_source;
-    
+
 
     public Integer getDeptId() {
         return deptId;

@@ -53,14 +53,14 @@ public class DepartmentController {
         return departmentService.findAllDept();
     }
 
-    @GetMapping(value="/dept/discovery")
-    public DiscoveryClient discovery(){
+    @GetMapping(value = "/dept/discovery")
+    public DiscoveryClient discovery() {
         List<String> services = discoveryClient.getServices();
         System.out.println("-----------------------" + services + "-------------------------");
         List<ServiceInstance> instances = discoveryClient.getInstances("MICROSERVICECLOUD-DEPT");
         for (ServiceInstance instance : instances) {
             System.out.println(instance.getHost() + "----------" + instance.getServiceId() + "-----------"
-             + instance.getUri() + "-----------" + instance.getPort());
+                    + instance.getUri() + "-----------" + instance.getPort());
         }
         return this.discoveryClient;
     }
