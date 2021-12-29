@@ -19,3 +19,6 @@ eureka:
 ## 日志配置
 logging:
   config: classpath:logback-spring.xml
+spring:
+  profiles:
+    active: dev
